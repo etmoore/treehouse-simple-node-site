@@ -4,27 +4,33 @@
 // Create a web server
 var http = require('http');
 http.createServer(function (req, res) {
-  res.writeHead(200, {'Content-Type': 'text/plain'});
-  setInterval(function(){
-    res.write(new Date() + "\n");
-  }, 1000);
-  // res.end('Hello World\n');
+  homeRoute(req, res);
 }).listen(3000, '127.0.0.1');
 console.log('Server running at http://127.0.0.1:3000/');
 
 // Handle HTTP route GET / and POST /
+function homeRoute(req, res){
   // if url === GET and "/"
+  if (req.url === '/'){
+    res.writeHead(200, {'Content-Type': 'text/plain'});
+    res.write('Header\n');
+    res.write('Search\n');
+    res.end('Footer');
+  }
     // show search
   // if url === POST and "/"
     // redirect to /:username
+}
 
 // Handle HTTP route for GET /:username
+function userRoute(){
   // if url == GET /....anything
     // get JSON from Treehouse
       // on "end"
         // show profile
       // on 'error'
         // show error
+}
 
 // Function that handles the reading of files and merges in values
   // read from file and get a string
